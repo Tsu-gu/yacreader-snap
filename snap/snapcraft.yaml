@@ -1,0 +1,102 @@
+name: yacreader-tsugu
+base: core24
+version: '9.14.2-1'
+summary: Fill out later
+description: |
+  Fill out later
+
+grade: stable
+confinement: strict
+
+lint:
+  ignore:
+    - classic 
+    - library
+
+apps:
+  yacreader-tsugu:
+    command: usr/bin/YACReader
+    extensions: [gnome]
+    environment: 
+      GIO_EXTRA_MODULES: $SNAP/usr/lib/x86_64-linux-gnu/gio/modules
+      LD_LIBRARY_PATH: >
+        $LD_LIBRARY_PATH:$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/libproxy:
+        $SNAP/usr/lib/x86_64-linux-gnu/libunarr:
+        $SNAP/usr/lib/x86_64-linux-gnu:
+        $SNAP/usr/lib:
+        $SNAP/lib/x86_64-linux-gnu:
+        $SNAP/lib:
+        $LD_LIBRARY_PATH
+      XDG_DATA_HOME: "$SNAP_USER_COMMON"
+      HOME: "$SNAP_USER_COMMON"  
+      QT_QPA_PLATFORM_PLUGIN_PATH: $SNAP/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
+      QT_PLUGIN_PATH: $SNAP/usr/lib/x86_64-linux-gnu/qt5/plugins
+      QML2_IMPORT_PATH: $SNAP/usr/lib/x86_64-linux-gnu/qt5/qml
+      XDG_DATA_DIRS: $SNAP/usr/share:$XDG_DATA_DIRS
+      ICON_THEME_PATH: $SNAP/usr/share/icons:$ICON_THEME_PATH
+      GTK_PATH: $SNAP/usr/lib/x86_64-linux-gnu/gtk-3.0
+    plugs:
+      - home
+      - desktop
+      - desktop-legacy
+      - wayland
+      - x11
+      - opengl
+      - audio-playback
+      - network
+      - removable-media
+      - unity7
+      - gsettings
+
+parts:
+  yacreader-tsugu:
+    source: https://download.opensuse.org/repositories/home:/selmf/xUbuntu_24.04/amd64/yacreader_${SNAPCRAFT_PROJECT_VERSION}_amd64.deb
+    plugin: dump
+    source-type: deb
+    stage-packages:
+      - libc6
+      - libgcc-s1
+      - libgl1
+      - libpoppler-qt5-1
+      - libqt5core5a
+      - libqt5gui5
+      - libqt5multimedia5
+      - libqt5network5
+      - libqt5qml5
+      - libqt5quick5
+      - libqt5quickwidgets5
+      - libqt5sql5
+      - libqt5widgets5
+      - libstdc++6
+      - libunarr1
+      - qml-module-qtquick-controls2
+      - qml-module-qtquick-layouts
+      - qml-module-qtgraphicaleffects
+      - qt5-image-formats-plugins
+      - libqt5sql5-sqlite
+      - qt5-qmltooling-plugins
+      - libqt5multimedia5-plugins
+      - qtwayland5
+      - qt5-gtk-platformtheme
+      - libproxy1v5
+      - libqt5dbus5
+      - libqt5printsupport5
+      - libqt5svg5
+      - libqt5x11extras5
+      - libxcb-xinerama0
+      - libxcb-icccm4
+      - libxcb-image0
+      - libxcb-keysyms1
+      - libxcb-randr0
+      - libxcb-render-util0
+      - libxcb-xkb1
+      - qtbase5-dev-tools
+      - libqt5gui5-gles
+      - adwaita-icon-theme
+      - hicolor-icon-theme
+      - humanity-icon-theme
+      - gtk-update-icon-cache
+      - shared-mime-info
+      - xdg-desktop-portal-gtk
+      - libgtk-3-0
+      - libgtk-3-0t64
