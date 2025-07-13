@@ -29,6 +29,9 @@ apps:
         $LD_LIBRARY_PATH
       XDG_DATA_HOME: "$SNAP_USER_COMMON"
       HOME: "$SNAP_USER_COMMON"  
+      QT_QPA_PLATFORM_PLUGIN_PATH: $SNAP/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms
+      QT_PLUGIN_PATH: $SNAP/usr/lib/x86_64-linux-gnu/qt5/plugins
+      QML2_IMPORT_PATH: $SNAP/usr/lib/x86_64-linux-gnu/qt5/qml
     plugs:
       - home
       - desktop
@@ -72,3 +75,5 @@ parts:
       - libqt5multimedia5-plugins
       - qtwayland5
       - qt5-gtk-platformtheme
+      - libqt5gui5-gles
+      - qtbase5-dev-tools
