@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=YAC Reader
+Exec=yacreader-tsugu
+Icon=${SNAP}/meta/gui/yacreader-tsugu.png
+Comment=Comic reader
+Terminal=false
+Type=Application
+MimeType=x-content/unix-software;
