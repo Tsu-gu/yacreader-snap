@@ -40,16 +40,11 @@ apps:
       GTK_PATH: $SNAP/usr/lib/x86_64-linux-gnu/gtk-3.0
     plugs:
       - home
-      - desktop
-      - desktop-legacy
-      - wayland
-      - x11
-      - opengl
       - audio-playback
       - network
       - removable-media
       - unity7
-      - gsettings
+      # removed plugs because they are already covered by gnome extension
 
 parts:
   yacreader-tsugu:
